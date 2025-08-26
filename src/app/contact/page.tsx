@@ -68,13 +68,13 @@ export default function ContactForm() {
   };
 
   // Show success toast
-  const showSuccess = (message: string) => {
+  const showSuccess = () => {
     setShowSuccessToast(true);
     setTimeout(() => setShowSuccessToast(false), 5000);
   };
 
   // Form submission handler
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async () => {
     setIsSubmitting(true);
     
     try {
@@ -83,7 +83,7 @@ export default function ContactForm() {
         
         if (result.success) {
           setSubmitStatus('success');
-          showSuccess('Message sent successfully!');
+          showSuccess();
           reset(); // Reset form using React Hook Form
         } else {
           setSubmitStatus('error');
@@ -101,8 +101,8 @@ export default function ContactForm() {
   };
 
   // Handle form submission errors
-  const onError = (errors: any) => {
-    const errorMessages = Object.values(errors).map((error: any) => error.message);
+  const onError = (errors: Record<string, { message?: string }>) => {
+    const errorMessages = Object.values(errors).map((error) => error.message || 'Unknown error');
     const errorText = errorMessages.length === 1 
       ? errorMessages[0] 
       : `Please fix ${errorMessages.length} errors: ${errorMessages.join(', ')}`;

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Github,
@@ -11,14 +10,9 @@ import {
   Download,
   ExternalLink,
   Code,
-  Database,
-  Globe,
-  Smartphone,
-  Server,
   ArrowRight,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import Router from "next/router";
 import Link from "next/link";
 
 export default function Home() {
