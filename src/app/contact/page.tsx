@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, X, AlertCircle } from 'lucide-react';
 import { Linkedin } from 'lucide-react';
-import { useForm } from 'react-hook-form';
+import { FieldErrors, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { initEmailJS, sendEmail } from '@/lib/emailjs';
@@ -101,11 +101,12 @@ export default function ContactForm() {
   };
 
   // Handle form submission errors
-  const onError = (errors: Record<string, { message?: string }>) => {
-    const errorMessages = Object.values(errors).map((error) => error.message || 'Unknown error');
-    const errorText = errorMessages.length === 1 
-      ? errorMessages[0] 
-      : `Please fix ${errorMessages.length} errors: ${errorMessages.join(', ')}`;
+  const onError = (errors: FieldErrors<ContactFormData>) => {
+    const errorMessages = Object.values(errors).map((error) => error?.message || "Unknown error");
+    const errorText =
+      errorMessages.length === 1
+        ? errorMessages[0]
+        : `Please fix ${errorMessages.length} errors: ${errorMessages.join(", ")}`;
     showError(errorText);
   };
 
