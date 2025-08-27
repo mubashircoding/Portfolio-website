@@ -38,11 +38,11 @@ export const siteConfig = {
       image: "/api/placeholder/400/250"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+      title: "Cloud Management App",
+      description: "A collaborative cloud management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
       technologies: ["React", "Firebase", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com/yourusername/task-manager",
-      live: "https://task-manager-demo.com",
+      github: "https://github.com/mubashircoding/Cloud-Manegement",
+      live: "https://cloud-manegement.netlify.app/",
       image: "/api/placeholder/400/250"
     },
     {
